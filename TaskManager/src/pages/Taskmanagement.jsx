@@ -59,7 +59,7 @@ const TaskManagement = () => {
         </div>
       </div>
 
-      {/* Value Props Section */}
+      {/* Value  Section */}
       <div className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 text-center">
@@ -118,7 +118,7 @@ const TaskManagement = () => {
         </div>
       </div>
 
-      {/* Productivity Stats Section */}
+      {/* Productivity Section */}
       <div className="py-12 sm:py-16 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-center">
@@ -172,14 +172,14 @@ const TaskManagement = () => {
       {/* Footer */}
       <footer className="bg-gray-100 text-gray-700 py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
-          {/* Column 1: Logo and Description */}
+          {/* Column 1 */}
           <div>
             <h2 className="text-lg sm:text-xl font-bold text-blue-600">TaskManager</h2>
             <p className="text-xs sm:text-sm mt-2">
               Simple, streamlined, and powerful—TaskManager helps individuals and teams stay on top of their work with clarity and confidence.
             </p>
           </div>
-          {/* Column 2: Quick Links */}
+          {/* Column 2 */}
           <div>
             <h3 className="text-sm sm:text-md font-semibold mb-2">Quick Links</h3>
             <ul className="space-y-1 text-xs sm:text-sm">
@@ -189,7 +189,7 @@ const TaskManagement = () => {
               <li><Link to="/signup" className="hover:text-blue-600">Get Started</Link></li>
             </ul>
           </div>
-          {/* Column 3: Company */}
+          {/* Column 3 */}
           <div>
             <h3 className="text-sm sm:text-md font-semibold mb-2">Company</h3>
             <ul className="space-y-1 text-xs sm:text-sm">
@@ -199,7 +199,7 @@ const TaskManagement = () => {
               <li><Link to="/privacy" className="hover:text-blue-600">Privacy Policy</Link></li>
             </ul>
           </div>
-          {/* Column 4: Newsletter */}
+          {/* Column 4*/}
           <div>
             <h3 className="text-sm sm:text-md font-semibold mb-2">Stay Updated</h3>
             <p className="text-xs sm:text-sm mb-2">Subscribe to receive product updates, tips, and productivity hacks.</p>
