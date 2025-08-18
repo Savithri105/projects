@@ -159,7 +159,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Comparison Section */}
+       
         <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 mb-12 sm:mb-16 overflow-hidden">
           <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Compare plans and features</h3>
           <div className="overflow-x-auto">
@@ -186,7 +186,7 @@ const Pricing = () => {
           </div>
         </div>
 
-        {/* FAQ Section with Collapsible Answers */}
+      
         <div className="mb-12 sm:mb-16">
           <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Frequently asked questions</h3>
           <div className="space-y-2">
@@ -230,7 +230,7 @@ const Pricing = () => {
           </div>
         </div>
 
-        {/* Final CTA */}
+      
         <div className="bg-red-500 rounded-xl p-6 sm:p-8 text-center text-white">
           <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Need help deciding?</h2>
           <p className="mb-4 sm:mb-6 text-sm sm:text-base">
@@ -244,14 +244,14 @@ const Pricing = () => {
         {/* Footer */}
         <footer className="bg-gray-200 text-gray-700 py-8 sm:py-10 px-4 sm:px-6 md:px-10 lg:px-20 mt-8 sm:mt-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
-            {/* Column 1: Logo and Description */}
+            {/* Column 1 */}
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-blue-600">TaskManager</h2>
               <p className="text-xs sm:text-sm mt-2">
                 Simple, streamlined, and powerful—TaskManager helps individuals and teams stay on top of their work with clarity and confidence.
               </p>
             </div>
-            {/* Column 2: Quick Links */}
+            {/* Column 2*/}
             <div>
               <h3 className="text-sm sm:text-md font-semibold mb-2">Quick Links</h3>
               <ul className="space-y-1 text-xs sm:text-sm">
@@ -261,7 +261,7 @@ const Pricing = () => {
                 <li><a href="/signup" className="hover:text-blue-600">Get Started</a></li>
               </ul>
             </div>
-            {/* Column 3: Company */}
+            {/* Column 3*/}
             <div>
               <h3 className="text-sm sm:text-md font-semibold mb-2">Company</h3>
               <ul className="space-y-1 text-xs sm:text-sm">
@@ -271,7 +271,7 @@ const Pricing = () => {
                 <li><a href="/privacy" className="hover:text-blue-600">Privacy Policy</a></li>
               </ul>
             </div>
-            {/* Column 4: Newsletter */}
+            {/* Column 4 */}
             <div>
               <h3 className="text-sm sm:text-md font-semibold mb-2">Stay Updated</h3>
               <p className="text-xs sm:text-sm mb-2">Subscribe to receive product updates, tips, and productivity hacks.</p>
