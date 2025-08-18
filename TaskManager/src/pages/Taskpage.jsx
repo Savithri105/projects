@@ -1,19 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { 
-  TextField, 
-  Button, 
-  Card, 
-  CardContent, 
-  IconButton, 
-  Typography,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  Divider,
-  Box
-} from "@mui/material";
+import { TextField, Button, Card, CardContent, IconButton, Typography,Drawer,List,ListItem,ListItemText,Divider,Box} from "@mui/material";
 import { Edit, Delete, CheckCircle, Cancel, Menu } from "@mui/icons-material";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -104,7 +91,7 @@ const TaskPage = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      {/* Mobile Drawer */}
+     
       <Drawer
         variant="temporary"
         open={mobileOpen}
@@ -117,7 +104,7 @@ const TaskPage = () => {
         {drawer}
       </Drawer>
 
-      {/* Desktop Sidebar */}
+     
       <Box
         component="aside"
         sx={{ width: 240, flexShrink: 0, display: { xs: 'none', sm: 'block' } }}
@@ -125,7 +112,7 @@ const TaskPage = () => {
         {drawer}
       </Box>
 
-      {/* Main Content */}
+     
       <Box
         component="main"
         sx={{ 
@@ -156,7 +143,7 @@ const TaskPage = () => {
           <span className="text-blue-600 font-medium">Welcome, {username}</span>
         </div>
 
-        {/* Form */}
+    
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-md mb-8">
           <TextField 
             label="Title" 
@@ -184,7 +171,7 @@ const TaskPage = () => {
           </Button>
         </form>
 
-        {/* Task Cards */}
+       
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {tasks.map((task) => (
             <Card 
