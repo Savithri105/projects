@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const HabitForming = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      {/* Hero Section - Improved Responsive Spacing */}
+      {/* Hero Section */}
       <div className="flex flex-col lg:flex-row items-center justify-center p-4 sm:p-8 lg:p-12 xl:p-20 gap-8 lg:gap-16 xl:gap-24 max-w-7xl mx-auto">
         <div className="w-full lg:w-1/2 flex justify-center">
           <img 
@@ -32,7 +32,7 @@ const HabitForming = () => {
         </div>
       </div>
 
-      {/* Features Section - Adjusted Grid for Mobile */}
+      {/* Features Section */}
       <div className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-gray-800">How It Works</h2>
@@ -64,7 +64,7 @@ const HabitForming = () => {
         </div>
       </div>
 
-      {/* Testimonials - Improved Card Sizing */}
+      {/* Testimonials */}
       <div className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-10 text-gray-800">
@@ -113,7 +113,7 @@ const HabitForming = () => {
         </div>
       </div>
 
-      {/* CTA Section - Adjusted Padding */}
+      {/* CTA Section*/}
       <div className="py-12 sm:py-16 bg-red-500 text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Ready to Transform Your Habits?</h2>
@@ -129,7 +129,7 @@ const HabitForming = () => {
         </div>
       </div>
 
-      {/* Footer - Responsive Grid */}
+      {/* Footer  */}
       <footer className="bg-gray-300 text-gray-700 py-8 sm:py-10 px-4 sm:px-6 md:px-12 lg:px-20 mt-8 sm:mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Column 1: Logo and Description */}
