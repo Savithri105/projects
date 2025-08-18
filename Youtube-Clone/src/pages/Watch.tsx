@@ -147,7 +147,7 @@ export default function Watch() {
                 </div>
               </div>
 
-              {/* Recommended Videos */}
+             
               <div className="mr-24 flex flex-col gap-3">
                 {recommendedVideos.map((item) => (
                   <WatchCard data={item} key={item.videoId} />
