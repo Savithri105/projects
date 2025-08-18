@@ -30,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
           </div>
         )}
 
-        {/* Center - Search Bar */}
+        
         <div className="hidden md:flex flex-1 mx-4 justify-center">
           <div className="flex items-center w-[60%] md:w-[80%] bg-zinc-800 rounded-full overflow-hidden">
             <input
