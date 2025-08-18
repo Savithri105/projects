@@ -1,21 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  TextField,
-  Button,
-  Card,
-  CardContent,
-  IconButton,
-  Typography,
-  InputLabel,
-  FormControl,
-  Select,
-  MenuItem,
-  Grid,
-  Box,
-  ToggleButton,
-  ToggleButtonGroup
-} from "@mui/material";
+import {TextField,Button,Card, CardContent,IconButton,Typography,InputLabel,FormControl,Select,MenuItem,Grid,Box,ToggleButton,ToggleButtonGroup} from "@mui/material";
 import { Edit, Delete } from "@mui/icons-material";
 
 const DailyRoutine = () => {
@@ -26,80 +11,117 @@ const DailyRoutine = () => {
     startTime: "",
     endTime: "",
     startPeriod: "AM",
-    endPeriod: "AM",
+    endPeriod: "PM",
   });
   const [filter, setFilter] = useState("All");
 
-  const fetchRoutines = () => {
-    axios.get("http://localhost:3001/routines").then((res) => {
-      const sorted = res.data.sort((a, b) => convertTo24Hour(a.startTime, a.startPeriod) - convertTo24Hour(b.startTime, b.startPeriod));
-      setRoutines(sorted);
-    });
-  };
-
-  useEffect(() => {
-    fetchRoutines();
-  }, []);
-
-  const convertTo24Hour = (time, period) => {
-    let [hour, minute] = time.split(":");
-    hour = parseInt(hour);
-    if (period === "PM" && hour !== 12) hour += 12;
-    if (period === "AM" && hour === 12) hour = 0;
-    return hour * 60 + parseInt(minute);
-  };
-
-  const filteredRoutines = routines.filter((r) => {
-    const hour = convertTo24Hour(r.startTime, r.startPeriod) / 60;
-    if (filter === "Morning") return hour >= 5 && hour < 12;
-    if (filter === "Evening") return hour >= 17 && hour <= 22;
-    return true;
+ const fetchRoutines = () => {
+  axios.get("http://localhost:3001/routines").then((res) => {
+    const sorted = res.data.sort(
+      (a, b) =>
+        convertTo24Hour(a.startTime, a.startPeriod) -
+        convertTo24Hour(b.startTime, b.startPeriod)
+    );
+    setRoutines(sorted);
   });
+};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const data = { ...formData };
+useEffect(() => {
+  fetchRoutines();
+}, []);
 
-    if (editId) {
-      axios.put(`http://localhost:3001/routines/${editId}`, data).then(() => {
+const convertTo24Hour = (time, period) => {
+  if (!time) return 0;
+
+  let [hour, minute] = time.split(":").map(Number);
+
+  if (!period) {
+    return hour * 60 + minute;
+  }
+  if (hour > 12 && period.toUpperCase() === "PM") {
+    return hour * 60 + minute; 
+  }
+  if (period.toUpperCase() === "PM" && hour !== 12) hour += 12;
+  if (period.toUpperCase() === "AM" && hour === 12) hour = 0;
+        return hour * 60 + minute;
+};
+
+const filteredRoutines = routines.filter((r) => {
+  const mins = convertTo24Hour(r.startTime, r.startPeriod) ;
+  if (filter==="All") return true;
+  if (filter === "Morning") return mins >= 0 && mins < 12 * 60; 
+  if (filter === "Evening") return mins >= 12 * 60 && mins < 24 * 60; 
+});
+
+
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  const data = { ...formData };
+
+  const isEditing = editId !== null && editId !== undefined;
+
+  if (isEditing) {
+    
+    axios.put(`http://localhost:3001/routines/${editId}`, data)
+      .then(() => {
         fetchRoutines();
         resetForm();
+      })
+      .catch((error) => {
+        console.error("Error updating routine:", error);
+        alert("Failed to update routine. Please try again.");
       });
-    } else {
-      axios.post("http://localhost:3001/routines", data).then(() => {
+  } else {
+   
+    axios.post("http://localhost:3001/routines", data)
+      .then(() => {
         fetchRoutines();
         resetForm();
+      })
+      .catch((error) => {
+        console.error("Error adding routine:", error);
+        alert("Failed to add routine. Please try again.");
       });
-    }
-  };
+  }
+};
 
-  const resetForm = () => {
-    setEditId(null);
-    setFormData({ title: "", startTime: "", endTime: "", startPeriod: "AM", endPeriod: "AM" });
-  };
+const resetForm = () => {
+  setEditId(null);
+  setFormData({
+    title: "",
+    startTime: "",
+    endTime: "",
+    startPeriod: "AM",
+    endPeriod: "AM"
+  });
+};
 
-  const handleEdit = (r) => {
-    setEditId(r.id);
-    setFormData({
-      title: r.title,
-      startTime: r.startTime,
-      endTime: r.endTime,
-      startPeriod: r.startPeriod,
-      endPeriod: r.endPeriod,
+const handleEdit = (r) => {
+  setEditId(r.id);
+  setFormData({
+    title: r.title,
+    startTime: r.startTime,
+    endTime: r.endTime,
+    startPeriod: r.startPeriod,
+    endPeriod: r.endPeriod,
+  });
+};
+
+const handleDelete = (id) => {
+  axios.delete(`http://localhost:3001/routines/${id}`)
+    .then(() => fetchRoutines())
+    .catch((error) => {
+      console.error("Error deleting routine:", error);
+      alert("Failed to delete routine. Please try again.");
     });
-  };
+};
 
-  const handleDelete = (id) => {
-    axios.delete(`http://localhost:3001/routines/${id}`).then(() => fetchRoutines());
-  };
 
   return (
     <Box sx={{ p: { xs: 2, sm: 3, md: 4 }, bgcolor: 'grey.50', minHeight: '100vh' }}>
-      <Typography variant="h4" component="h2" sx={{ mb: 3, color: 'primary.dark', fontWeight: 'bold' }}>
+      <Typography variant="h4" sx={{ mb: 3, color: 'primary.dark', fontWeight: 'bold' }}>
         🕒 Daily Routine
       </Typography>
-
-      {/* Form Section */}
       <Box 
         component="form" 
         onSubmit={handleSubmit} 
@@ -172,14 +194,14 @@ const DailyRoutine = () => {
           color="primary"
           sx={{ 
             gridColumn: { xs: '1', sm: '1 / -1', md: 'auto' },
-            height: '56px' // Match other form fields height
+            height: '56px'
           }}
         >
           {editId ? "Update" : "Add"} Routine
         </Button>
       </Box>
 
-      {/* Filter Controls */}
+     
       <Box sx={{ mb: 4 }}>
         <ToggleButtonGroup
           value={filter}
@@ -200,7 +222,7 @@ const DailyRoutine = () => {
         </ToggleButtonGroup>
       </Box>
 
-      {/* Routine Cards */}
+   
       <Grid container spacing={2}>
         {filteredRoutines.map((r) => (
           <Grid item xs={12} sm={6} key={r.id}>
