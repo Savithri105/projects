@@ -39,7 +39,7 @@ const Overview = () => {
         </div>
       </div>
 
-      {/* Features Grid */}
+      {/* Features*/}
       <div className="flex items-center justify-center bg-white px-4 sm:px-6 py-10 sm:py-15">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 text-center max-w-6xl w-full">
           {/* Column 1 */}
@@ -62,7 +62,7 @@ const Overview = () => {
         </div>
       </div>
 
-      {/* Interactive Features Section */}
+      {/* Features Section */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-10 px-4 sm:px-6 lg:px-10 py-12 sm:py-16 lg:py-20 bg-white">
         {/* Left Q&A section */}
         <div className="flex flex-col gap-4 sm:gap-6 w-full md:w-1/2">
@@ -152,14 +152,14 @@ const Overview = () => {
       {/* Footer */}
       <footer className="bg-gray-100 text-gray-700 py-8 sm:py-10 px-4 sm:px-6 md:px-10 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
-          {/* Column 1: Logo and Description */}
+          {/* Column 1*/}
           <div>
             <h2 className="text-lg sm:text-xl font-bold text-teal-500">TaskManager</h2>
             <p className="text-xs sm:text-sm mt-2">
               Simple, streamlined, and powerful—TaskManager helps individuals and teams stay on top of their work with clarity and confidence.
             </p>
           </div>
-          {/* Column 2: Quick Links */}
+          {/* Column 2*/}
           <div>
             <h3 className="text-sm sm:text-md font-semibold mb-2">Quick Links</h3>
             <ul className="space-y-1 text-xs sm:text-sm">
@@ -169,7 +169,7 @@ const Overview = () => {
               <li><Link to="/signup" className="hover:text-teal-500">Get Started</Link></li>
             </ul>
           </div>
-          {/* Column 3: Company */}
+          {/* Column 3 */}
           <div>
             <h3 className="text-sm sm:text-md font-semibold mb-2">Company</h3>
             <ul className="space-y-1 text-xs sm:text-sm">
@@ -179,7 +179,7 @@ const Overview = () => {
               <li><Link to="/privacy" className="hover:text-teal-500">Privacy Policy</Link></li>
             </ul>
           </div>
-          {/* Column 4: Newsletter */}
+          {/* Column 4 */}
           <div>
             <h3 className="text-sm sm:text-md font-semibold mb-2">Stay Updated</h3>
             <p className="text-xs sm:text-sm mb-2">Subscribe to receive product updates, tips, and productivity hacks.</p>
